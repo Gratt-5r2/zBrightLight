@@ -48,7 +48,7 @@ namespace GOTHIC_ENGINE {
       GetCurrentRenderObject();
 
     int ok = THISCALL( Ivk_zCRnd_D3D_SetTextureStageState )(stage, state, value);
-    if( d3dTop != Invalid && !zKeyPressed( KEY_NUMPAD5 ) )
+    if( d3dTop != Invalid )
       xd3d_pd3dDevice7->SetTextureStageState( 0, D3DTSS_COLOROP, d3dTop );
 
     return ok;
