@@ -59,13 +59,6 @@ namespace GOTHIC_ENGINE {
     int ok = THISCALL( Ivk_zCRnd_D3D_SetTextureStageState )(stage, state, value);
     if( d3dTop != Invalid && !IndoorMode )
       xd3d_pd3dDevice7->SetTextureStageState( 0, D3DTSS_COLOROP, d3dTop );
-    
-
-    zCPolygon* poly;
-    zVEC3 vertical    = zVEC3( 0.0f, 1.0f, 0.0f );                  // Вертикальный ветор, направленный строго вверх
-    zVEC3 polyNormal  = poly->polyPlane.normal;                     // Нормаль полигона
-    float angleRAD    = Alg_AngleUnitRad( polyNormal, polyNormal ); // Значение угла между векторами в радианах
-    float angleDEGREE = angleRAD * DEGREE;                          // Перевод радиан в градусы, если надо
 
     return ok;
   }
