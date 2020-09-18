@@ -31,6 +31,7 @@ namespace GOTHIC_ENGINE {
   }
 
   void LoadEnd() {
+    IndoorMode = IsIndoorWorld();
   }
 
   void Game_LoadBegin_NewGame() {

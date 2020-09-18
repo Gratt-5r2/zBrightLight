@@ -194,4 +194,8 @@ namespace GOTHIC_ENGINE {
     zCRnd_D3D::xd3d_pd3dDevice7->GetTextureStageState( 0, D3DTSS_COLOROP, &d3dTop );
     return d3dTop;
   }
+
+
+
+  bool IndoorMode = false;
 }
