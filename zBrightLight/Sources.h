@@ -3,7 +3,9 @@
 
 // Automatically generated block
 #pragma region Includes
+#include "AutoBrightness.cpp"
 #include "zBrightLight.cpp"
+#include "Options.cpp"
 #include "Plugin.cpp"
 #pragma endregion
 

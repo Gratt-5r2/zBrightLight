@@ -2,19 +2,50 @@
 // Union SOURCE file
 
 namespace GOTHIC_ENGINE {
+  HOOK Hook_zCRnd_D3D_SetTextureStageState PATCH_IF( &zCRnd_D3D::SetTextureStageState, &zCRnd_D3D::SetTextureStageState_Union,      false );
+  HOOK Hook_oCViewDialogItem_Blit          PATCH_IF( &oCViewDialogItem::Blit,          &zCViewBase::oCViewDialogItem_Blit_Union,    false );
+  HOOK Hook_zCViewDraw_Blit                PATCH_IF( &zCViewDraw::Blit,                &zCViewBase::zCViewDraw_Blit_Union,          false );
+  HOOK Hook_zCViewFX_Blit                  PATCH_IF( &zCViewFX::Blit,                  &zCViewBase::zCViewFX_Blit_Union,            false );
+  HOOK Hook_zCViewPrint_Blit               PATCH_IF( &zCViewPrint::Blit,               &zCViewBase::zCViewPrint_Blit_Union,         false );
+  HOOK Hook_zCView_Blit                    PATCH_IF( &zCView::Blit,                    &zCViewBase::zCView_Blit_Union,              false );
+  HOOK Hook_zCViewDialogChoice_BlitText    PATCH_IF( &zCViewDialogChoice::BlitText,    &zCViewBase::zCViewDialogChoice_BlitText,    false );
+  HOOK Hook_zCViewDraw_BlitTexture         PATCH_IF( &zCViewDraw::BlitTexture,         &zCViewBase::zCViewDraw_BlitTexture,         false );
+  HOOK Hook_zCViewPrint_BlitText           PATCH_IF( &zCViewPrint::BlitText,           &zCViewBase::zCViewPrint_BlitText,           false );
+  HOOK Hook_zCViewPrint_BlitTextLine       PATCH_IF( &zCViewPrint::BlitTextLine,       &zCViewBase::zCViewPrint_BlitTextLine,       false );
+  HOOK Hook_zCViewPrint_BlitTextCharacters PATCH_IF( &zCViewPrint::BlitTextCharacters, &zCViewBase::zCViewPrint_BlitTextCharacters, false );
+  HOOK Hook_zCView_BlitText                PATCH_IF( &zCView::BlitText,                &zCViewBase::zCView_BlitText,                false );
 
-  HOOK Ivk_zCRnd_D3D_SetTextureStageState  PATCH( &zCRnd_D3D::SetTextureStageState, &zCRnd_D3D::SetTextureStageState_Union );
-  HOOK Hook_oCViewDialogItem_Blit          PATCH( &oCViewDialogItem::Blit,          &zCViewBase::oCViewDialogItem_Blit_Union );
-  HOOK Hook_zCViewDraw_Blit                PATCH( &zCViewDraw::Blit,                &zCViewBase::zCViewDraw_Blit_Union );
-  HOOK Hook_zCViewFX_Blit                  PATCH( &zCViewFX::Blit,                  &zCViewBase::zCViewFX_Blit_Union );
-  HOOK Hook_zCViewPrint_Blit               PATCH( &zCViewPrint::Blit,               &zCViewBase::zCViewPrint_Blit_Union );
-  HOOK Hook_zCView_Blit                    PATCH( &zCView::Blit,                    &zCViewBase::zCView_Blit_Union );
-  HOOK Hook_zCViewDialogChoice_BlitText    PATCH( &zCViewDialogChoice::BlitText,    &zCViewBase::zCViewDialogChoice_BlitText );
-  HOOK Hook_zCViewDraw_BlitTexture         PATCH( &zCViewDraw::BlitTexture,         &zCViewBase::zCViewDraw_BlitTexture );
-  HOOK Hook_zCViewPrint_BlitText           PATCH( &zCViewPrint::BlitText,           &zCViewBase::zCViewPrint_BlitText );
-  HOOK Hook_zCViewPrint_BlitTextLine       PATCH( &zCViewPrint::BlitTextLine,       &zCViewBase::zCViewPrint_BlitTextLine );
-  HOOK Hook_zCViewPrint_BlitTextCharacters PATCH( &zCViewPrint::BlitTextCharacters, &zCViewBase::zCViewPrint_BlitTextCharacters );
-  HOOK Hook_zCView_BlitText                PATCH( &zCView::BlitText,                &zCViewBase::zCView_BlitText );
+  static void PluginHooksEnabled() {
+    Hook_zCRnd_D3D_SetTextureStageState.Commit();
+    Hook_oCViewDialogItem_Blit.Commit();
+    Hook_zCViewDraw_Blit.Commit();
+    Hook_zCViewFX_Blit.Commit();
+    Hook_zCViewPrint_Blit.Commit();
+    Hook_zCView_Blit.Commit();
+    Hook_zCViewDialogChoice_BlitText.Commit();
+    Hook_zCViewDraw_BlitTexture.Commit();
+    Hook_zCViewPrint_BlitText.Commit();
+    Hook_zCViewPrint_BlitTextLine.Commit();
+    Hook_zCViewPrint_BlitTextCharacters.Commit();
+    Hook_zCView_BlitText.Commit();
+    Hook_zCSkyControler_Outdoor_CalcPolyLightCLUT.Commit();
+  }
+
+  static void PluginHooksDisabled() {
+    Hook_zCRnd_D3D_SetTextureStageState.Detach();
+    Hook_oCViewDialogItem_Blit.Detach();
+    Hook_zCViewDraw_Blit.Detach();
+    Hook_zCViewFX_Blit.Detach();
+    Hook_zCViewPrint_Blit.Detach();
+    Hook_zCView_Blit.Detach();
+    Hook_zCViewDialogChoice_BlitText.Detach();
+    Hook_zCViewDraw_BlitTexture.Detach();
+    Hook_zCViewPrint_BlitText.Detach();
+    Hook_zCViewPrint_BlitTextLine.Detach();
+    Hook_zCViewPrint_BlitTextCharacters.Detach();
+    Hook_zCView_BlitText.Detach();
+    Hook_zCSkyControler_Outdoor_CalcPolyLightCLUT.Detach();
+  }
 
 
 
@@ -56,7 +87,7 @@ namespace GOTHIC_ENGINE {
       GetD3DTOP( zERenderObject::Interface ) :
       GetCurrentRenderObject();
 
-    int ok = THISCALL( Ivk_zCRnd_D3D_SetTextureStageState )(stage, state, value);
+    int ok = THISCALL( Hook_zCRnd_D3D_SetTextureStageState )(stage, state, value);
     if( d3dTop != Invalid && !IndoorMode )
       xd3d_pd3dDevice7->SetTextureStageState( 0, D3DTSS_COLOROP, d3dTop );
 

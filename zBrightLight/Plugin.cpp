@@ -1,21 +1,28 @@
 // This file added in headers queue
 // File: "Sources.h"
+#include <typeinfo>
 
 namespace GOTHIC_ENGINE {
 
+  template<class T>
+  void checkTypeID(T ptr) {
+    const std::type_info& info( typeid(T) );
+    const char* name = info.raw_name();
+    printf( name );
+  }
+
   void Game_Entry() {
-    Union.GetSysPackOption().Read( s_PluginEnabled, "ZBRIGHTLIGHT", "Enable", true );
-    if( !s_PluginEnabled )
-      Ivk_zCRnd_D3D_SetTextureStageState.Detach();
   }
 
   void Game_Init() {
+    ApplyGamepadOptions();
   }
 
   void Game_Exit() {
   }
 
   void Game_Loop() {
+    // UpdateBrightness();
   }
 
   // Information about current saving or loading world
@@ -31,7 +38,6 @@ namespace GOTHIC_ENGINE {
   }
 
   void LoadEnd() {
-    IndoorMode = IsIndoorWorld();
   }
 
   void Game_LoadBegin_NewGame() {

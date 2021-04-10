@@ -217,6 +217,12 @@
     <Filter Include="Plugin\zBrightLight">
       <UniqueIdentifier>{dcf60160-5a3c-4a50-a32d-e1ae62e46372}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Plugin\zBrightLight\Options">
+      <UniqueIdentifier>{908d9378-feca-4923-b9f0-97ef6335a8e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugin\zBrightLight\AutoBrightness">
+      <UniqueIdentifier>{60d3a1b6-2e82-4bbf-be8d-5143641e8573}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Interface.cpp">
@@ -2785,6 +2791,15 @@
     </ClInclude>
     <ClInclude Include="zBrightLight.h">
       <Filter>Plugin\zBrightLight</Filter>
+    </ClInclude>
+    <ClInclude Include="Options.cpp">
+      <Filter>Plugin\zBrightLight\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="Options.h">
+      <Filter>Plugin\zBrightLight\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoBrightness.cpp">
+      <Filter>Plugin\zBrightLight\AutoBrightness</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

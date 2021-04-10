@@ -4,6 +4,7 @@
 // Automatically generated block
 #pragma region Includes
 #include "zBrightLight.h"
+#include "Options.h"
 #include "Plugin.h"
 #pragma endregion
 

@@ -3,3 +3,4 @@
 // User API for zCSkyControler_Outdoor
 // Add your methods here
 
+void CalcPolyLightCLUT_Union( zVEC3 const&, zVEC3 const& );
