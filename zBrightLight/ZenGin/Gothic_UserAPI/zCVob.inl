@@ -3,3 +3,4 @@
 // User API for zCVob
 // Add your methods here
 
+void SetVisual_Union( zCVisual* );

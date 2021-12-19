@@ -5,6 +5,7 @@
 #pragma region Includes
 #include "AutoBrightness.cpp"
 #include "zBrightLight.cpp"
+#include "GlobalIllumination.cpp"
 #include "Options.cpp"
 #include "Plugin.cpp"
 #pragma endregion

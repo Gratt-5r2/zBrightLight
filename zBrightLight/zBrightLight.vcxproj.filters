@@ -223,6 +223,9 @@
     <Filter Include="Plugin\zBrightLight\AutoBrightness">
       <UniqueIdentifier>{60d3a1b6-2e82-4bbf-be8d-5143641e8573}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Plugin\zBrightLight\GI">
+      <UniqueIdentifier>{24a43449-ae03-44d4-97d0-c591a5b990ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Interface.cpp">
@@ -2800,6 +2803,12 @@
     </ClInclude>
     <ClInclude Include="AutoBrightness.cpp">
       <Filter>Plugin\zBrightLight\AutoBrightness</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalIllumination.cpp">
+      <Filter>Plugin\zBrightLight\GI</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalIllumination.h">
+      <Filter>Plugin\zBrightLight\GI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

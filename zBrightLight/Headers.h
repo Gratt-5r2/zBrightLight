@@ -3,8 +3,9 @@
 
 // Automatically generated block
 #pragma region Includes
-#include "zBrightLight.h"
 #include "Options.h"
+#include "zBrightLight.h"
+#include "GlobalIllumination.h"
 #include "Plugin.h"
 #pragma endregion
 

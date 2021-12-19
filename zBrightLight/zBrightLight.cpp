@@ -82,13 +82,26 @@ namespace GOTHIC_ENGINE {
 
 
 
+  zCBspTree*& ActiveBspTree = *(zCBspTree**)ZenDef( 0x0086FBE0, 0x008B586C, 0x008C6334, 0x008D4978 );
+
+  bool CurrentWorldIsGame() {
+    if( !Opt_GameWorldOnly )
+      return true;
+
+    zCWorld* world = ogame->GetWorld();
+    if( !world )
+      return false;
+
+    return ActiveBspTree == &world->bspTree;
+  }
+
   int zCRnd_D3D::SetTextureStageState_Union( unsigned long stage, zTRnd_TextureStageState state, unsigned long value ) {
     ulong d3dTop = s_D3DStageLocked ?
       GetD3DTOP( zERenderObject::Interface ) :
       GetCurrentRenderObject();
 
     int ok = THISCALL( Hook_zCRnd_D3D_SetTextureStageState )(stage, state, value);
-    if( d3dTop != Invalid && !IndoorMode )
+    if( d3dTop != Invalid && !IndoorMode && CurrentWorldIsGame() )
       xd3d_pd3dDevice7->SetTextureStageState( 0, D3DTSS_COLOROP, d3dTop );
 
     return ok;

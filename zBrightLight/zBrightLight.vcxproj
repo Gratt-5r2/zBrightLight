@@ -467,6 +467,14 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="GlobalIllumination.cpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="GlobalIllumination.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Options.cpp">
       <SubType>
       </SubType>

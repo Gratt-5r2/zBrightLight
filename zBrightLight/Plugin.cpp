@@ -23,6 +23,7 @@ namespace GOTHIC_ENGINE {
 
   void Game_Loop() {
     // UpdateBrightness();
+    
   }
 
   // Information about current saving or loading world
@@ -35,6 +36,7 @@ namespace GOTHIC_ENGINE {
   }
 
   void LoadBegin() {
+    ResetSoftLightModelLists();
   }
 
   void LoadEnd() {
