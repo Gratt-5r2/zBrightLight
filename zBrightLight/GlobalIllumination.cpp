@@ -99,7 +99,8 @@ namespace GOTHIC_ENGINE {
       return;
 
     float giIntensity = 0.0f;
-         if( VobIsInSoftList( renderContext.vob, HighSoftModelList ) ) giIntensity = HightGlobalIllumination;
+         if( renderContext.vob->type == zVOB_TYPE_ITEM )               giIntensity = MidGlobalIllumination;
+    else if( VobIsInSoftList( renderContext.vob, HighSoftModelList ) ) giIntensity = HightGlobalIllumination;
     else if( VobIsInSoftList( renderContext.vob, MidSoftModelList  ) ) giIntensity = MidGlobalIllumination;
     else if( VobIsInSoftList( renderContext.vob, LowSoftModelList  ) ) giIntensity = LowGlobalIllumination;
     else
